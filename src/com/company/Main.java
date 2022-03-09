@@ -1,5 +1,8 @@
 package com.company;
 
+import java.math.BigDecimal;
+
+
 public class Main {
 
     public static void main(String[] args) {
@@ -62,8 +65,30 @@ public class Main {
 
         //calculating total number of containers
         int totalNoOfContainers = noOfFullContainers +1;
-        System.out.println("we have " + totalNoOfContainers + " containers");
+        System.out.println("we have " + totalNoOfContainers + " containers\n");
 
+
+//task 5
+
+        //assigning variables
+        double netProduct = 9.99;
+        double grossProduct;
+
+        //calculating gross value(we assume VAT of 23%)
+        grossProduct = netProduct + netProduct * 0.23;
+        System.out.println("gross price of 1 product: " + grossProduct + "$");
+
+        //products sold
+        double productsSold = grossProduct * 10000;
+        System.out.println("gross price of 10000 products: " + productsSold + "$");
+
+        BigDecimal ps = new BigDecimal(productsSold);
+        BigDecimal vat = new BigDecimal(0.23);
+
+        BigDecimal vatAmount = ps.multiply(vat);
+
+        BigDecimal netAmount = ps.subtract(vatAmount);
+        System.out.println("price for 10000 products excluding Vat: " + netAmount + "$");
 
 
 
